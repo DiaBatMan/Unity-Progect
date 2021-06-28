@@ -17,9 +17,16 @@ public class Bullet : Stats
     {
         if (colider.gameObject.name != "ME")
         {
+            if(colider.gameObject.GetComponent<Renderer>().material.color== new Color(0, 0, 255))
+            score+=2;
+            if (colider.gameObject.GetComponent<Renderer>().material.color == new Color(255, 0, 0))
+                score += 3;
+            if (colider.gameObject.GetComponent<Renderer>().material.color == new Color(0, 0, 0))
+                score += 4;
+            if (colider.gameObject.GetComponent<Renderer>().material.color == new Color(255, 255, 0))
+                score += 1;
             Destroy(colider.gameObject);
             Destroy(gameObject);
-            score++;
         }
             
         

@@ -6,11 +6,15 @@ public class MovementOfMe : MonoBehaviour
     public float speed = 1.3f;
     private bool hit;
     private float timing = 0f;
-    
+    [SerializeField]
+    private GameObject cam;
+
 
     private void Start()
     {
         GetComponent<Renderer>().material.color = new Color(0,255,0);
+        cam.SetActive(true);
+
     }
     void Update()
     {

@@ -16,10 +16,16 @@ public class Cheking : MonoBehaviour
     private Transform[] Poss;
     [SerializeField]
     private LeftRight leftRight;
+    [SerializeField]
+    private Pause ps;
+    private bool hereWasPause;
+    private int[] id;
+
+
 
     private void Awake()
     {
-
+        id = new int[EnemyCount];
         Enemies = new GameObject[EnemyCount];
         ReadyEnemies = new GameObject[EnemyCount];
 
@@ -48,9 +54,38 @@ public class Cheking : MonoBehaviour
     }
     private void Update()
     {
+        if (ps.isPause)
+        {       
+            for(int i=0; i<EnemyCount; i++)
+            {                           
+               
+                if (Enemies[i].GetComponent<EnemyScript>().enabled)
+                {
+                    id[i] = i;
+                }
+                Enemies[i].GetComponent<EnemyScript>().enabled = false;
+                Enemies[i].GetComponent<LeftRight>().enabled = false;
+            }
+            hereWasPause = true;
+        }
+        if (!ps.isPause&& hereWasPause)
+        {
+            for(int i=0; i<EnemyCount; i++)
+            {
+                if (i == id[i])
+                {
+                    Enemies[i].GetComponent<EnemyScript>().enabled = true;
+                    id[i] = -1;
+                }
+                Enemies[i].GetComponent<LeftRight>().enabled = true;
+            }
+            hereWasPause = false;
+
+
+        }
         Timing += Time.deltaTime;
 
-        if (Timing > 1.5f&& !leftRight.goHome)
+        if (Timing > 4f&& !leftRight.goHome)
         {
 
             Timing = 0f;

@@ -1,6 +1,7 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class EnemyBullet : Stats
+public class EnemyBullet : text
 {
     public float bulletSpeed = 2f;
     [SerializeField]
@@ -27,6 +28,10 @@ public class EnemyBullet : Stats
         {
             Destroy(enemyBullet);
             healPoints--;
+            if (healPoints == 0)
+            {
+                SceneManager.LoadScene(1);
+            }
         }
     }
 }

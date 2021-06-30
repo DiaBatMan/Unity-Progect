@@ -3,14 +3,12 @@ using UnityEngine;
 public class LeftRight : MonoBehaviour
 {   
     public float speed = 0.5f;
-    private bool switcher=true,work=true;
+    private bool switcher=true;
     public bool goHome=false;
     private float Right,Left;
     private float x, y,Y;
     public EnemyScript enemyScript;
- 
-    private float Timing = 0f;
-    private GameObject empty;
+
 
     private void Start()
     {
@@ -18,11 +16,9 @@ public class LeftRight : MonoBehaviour
         y = transform.position.y;
         Right = x + 1.5f;
         Left = x - 1.5f;
-        empty = GameObject.Find("empty");
     }
     void Update()
     {
-            Timing += Time.deltaTime;
 
             if (x < Right && switcher)
                 x += speed;

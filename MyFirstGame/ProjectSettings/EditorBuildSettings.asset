@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_menu.unity
     guid: dcb4d2e65d8ac77459701d93abe0cdec
+  - enabled: 1
+    path: Assets/options.unity
+    guid: b34230983da3d6543a47d18155e99637
   m_configObjects: {}

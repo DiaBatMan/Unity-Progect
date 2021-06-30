@@ -1,19 +1,22 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Pause : MonoBehaviour
 {
     [HideInInspector]
     public bool isPause;
-    [SerializeField]
     public GameObject pause;
+    [SerializeField]
+    private Text HP, score;
+
     void Start()
     {
         pause.SetActive(false);
     }
 
     void Update()
-    {        
+    {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             pause.SetActive(true);

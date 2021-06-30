@@ -12,8 +12,23 @@ public class MovementOfMe : MonoBehaviour
 
     private void Start()
     {
-        GetComponent<Renderer>().material.color = new Color(0,255,0);
-        cam.SetActive(true);
+        if (PlayerPrefs.HasKey("myColor"))
+        {
+            if (PlayerPrefs.GetString("myColor") == "r")
+                GetComponent<Renderer>().material.color = Color.red;
+            if (PlayerPrefs.GetString("myColor") == "g")
+                GetComponent<Renderer>().material.color = Color.green;
+            if (PlayerPrefs.GetString("myColor") == "b")
+                GetComponent<Renderer>().material.color = Color.blue;
+            if (PlayerPrefs.GetString("myColor") == "p")
+                GetComponent<Renderer>().material.color = Color.magenta;
+            if (PlayerPrefs.GetString("myColor") == "o")
+                GetComponent<Renderer>().material.color = new Color(255, 134, 0);
+            if (PlayerPrefs.GetString("myColor") == "y")
+                GetComponent<Renderer>().material.color = Color.yellow;
+            if (PlayerPrefs.GetString("myColor") == "bk")
+                GetComponent<Renderer>().material.color = Color.black;
+        }
 
     }
     void Update()

@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
-
+//—крипт насторек в меню
 public class Options : MonoBehaviour
 {
     public GameObject yellow,blue,red,black;
@@ -8,6 +8,7 @@ public class Options : MonoBehaviour
     public Text yText, bText, rText, bkText;
     private void Start()
     {
+        //установка цветов дл€ врагов
         red.GetComponent<Renderer>().material.color = Color.red;
         yellow.GetComponent<Renderer>().material.color = Color.yellow;
         blue.GetComponent<Renderer>().material.color = Color.blue;
@@ -17,7 +18,7 @@ public class Options : MonoBehaviour
         bText.text = bCount.ToString();
         rText.text = rCount.ToString();
         bkText.text = bkCount.ToString();
-
+        //загрузка из сохранени€ текущего цвета —≈Ѕя
         if (PlayerPrefs.HasKey("myColor"))
         {
             if (PlayerPrefs.GetString("myColor") == "r")
@@ -35,6 +36,7 @@ public class Options : MonoBehaviour
             if (PlayerPrefs.GetString("myColor") == "bk")
                 GetComponent<Renderer>().material.color = Color.black;
         }
+        //загрузка из сохранение количества врагов
         yCount= PlayerPrefs.GetInt("yCount");
         bCount= PlayerPrefs.GetInt("bCount");
         rCount=PlayerPrefs.GetInt("rCount");
@@ -49,6 +51,7 @@ public class Options : MonoBehaviour
 
     public void changeColor(string color)
     {
+        //установка цвета —≈Ѕя
         if (color == "r")
         {
             GetComponent<Renderer>().material.color = Color.red;
@@ -88,6 +91,7 @@ public class Options : MonoBehaviour
 
     public void Count(string Case)
     {
+        //изменение количества врагов
         if (Case == "+B")
         {
             if(bCount<8)

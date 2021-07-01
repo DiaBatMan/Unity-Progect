@@ -1,14 +1,13 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
+//скрипт паузы
 
 public class Pause : MonoBehaviour
 {
     [HideInInspector]
     public bool isPause;
     public GameObject pause;
-    [SerializeField]
-    private Text HP, score;
+
 
     void Start()
     {

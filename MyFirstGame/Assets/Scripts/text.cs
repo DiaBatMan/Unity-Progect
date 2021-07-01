@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
-
+//скрипт текста очков
 public class text : MonoBehaviour
 {
     public static int healPoints, score, maxScroe;
@@ -8,8 +8,6 @@ public class text : MonoBehaviour
 
     private void Start()
     {
-        score = 0;
-        healPoints = 3;
         maxScroe = PlayerPrefs.GetInt("maxScore");
     }
 
@@ -18,5 +16,10 @@ public class text : MonoBehaviour
         Score.text = "Score "+score.ToString();
         HP.text = "HP " + healPoints.ToString();
         maxScore.text = "Max Score " + maxScroe.ToString();
+    }
+   public void Begin()
+    {
+        score = 0;
+        healPoints = 3;
     }
 }

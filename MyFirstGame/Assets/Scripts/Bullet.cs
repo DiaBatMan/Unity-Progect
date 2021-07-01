@@ -1,6 +1,5 @@
 using UnityEngine;
-
-
+//скрипт МОИХ пуль
 public class Bullet : text
 {
     public float BulledSpeed=1.5f;
@@ -18,7 +17,7 @@ public class Bullet : text
         if (colider.gameObject.name != "ME")
         {
             if(colider.gameObject.GetComponent<Renderer>().material.color== new Color(0, 0, 255))
-                score+=2;
+                score += 2;
             if (colider.gameObject.GetComponent<Renderer>().material.color == new Color(255, 0, 0))
                 score += 3;
             if (colider.gameObject.GetComponent<Renderer>().material.color == new Color(0, 0, 0))

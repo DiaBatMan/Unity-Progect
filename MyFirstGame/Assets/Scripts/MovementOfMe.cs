@@ -1,5 +1,5 @@
 using UnityEngine;
-
+//скрипт МОЕГО движения
 public class MovementOfMe : MonoBehaviour
 {
     public GameObject bullet;
@@ -12,6 +12,7 @@ public class MovementOfMe : MonoBehaviour
 
     private void Start()
     {
+        //загрузка из созранения МОЕГО цвета
         if (PlayerPrefs.HasKey("myColor"))
         {
             if (PlayerPrefs.GetString("myColor") == "r")
@@ -33,7 +34,7 @@ public class MovementOfMe : MonoBehaviour
     }
     void Update()
     {
-
+        //МОЕ движение
         if (Input.GetKey(KeyCode.A))
         {
             transform.Translate(-Vector3.right * speed * Time.deltaTime);           
@@ -46,7 +47,9 @@ public class MovementOfMe : MonoBehaviour
         {
             Instantiate(bullet, transform.position, Quaternion.identity);           
         }
+        ////////
         if (hit)
+            //отключение хит-бокса при подании в МЕНЯ
         {
             timing += Time.deltaTime;
             GetComponent<BoxCollider>().enabled = false;

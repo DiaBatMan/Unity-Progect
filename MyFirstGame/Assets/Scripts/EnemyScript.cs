@@ -1,5 +1,5 @@
 using UnityEngine;
-
+//скрипт движения врага
 public class EnemyScript : MonoBehaviour
 {
     public float bulletSpeed=20f;
@@ -24,8 +24,8 @@ public class EnemyScript : MonoBehaviour
             Timing += Time.deltaTime;
             if (Timing < y / 10)
             {
-
-                if (transform.position.x > 0f)
+            //движение оп направление х
+            if (transform.position.x > 0f)
                 {
                     transform.LookAt(new Vector3(10, transform.position.y, transform.position.z));
                     GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * Force);
@@ -38,7 +38,8 @@ public class EnemyScript : MonoBehaviour
             }
             else
             {
-                transform.LookAt(new Vector3(movementOfMe.transform.position.x, movementOfMe.transform.position.y, movementOfMe.transform.position.z));
+            //движение в направлении МЕНЯ
+            transform.LookAt(new Vector3(movementOfMe.transform.position.x, movementOfMe.transform.position.y, movementOfMe.transform.position.z));
                 GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * Force);
 
                 if (transform.position.y < 10f)
@@ -50,7 +51,8 @@ public class EnemyScript : MonoBehaviour
             }
             if (readyToFire)
             {
-                if (first)
+            //стрельба по МНЕ
+            if (first)
                 {
                     Instantiate(bullet, transform.position, Quaternion.identity);
                     first = false;

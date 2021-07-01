@@ -5462,8 +5462,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPause: 0
   pause: {fileID: 1118243032}
-  HP: {fileID: 1771292022}
-  score: {fileID: 1816843814}
 --- !u!4 &2072749493
 Transform:
   m_ObjectHideFlags: 0
@@ -5540,6 +5538,7 @@ MonoBehaviour:
   - {fileID: 583838276}
   leftRight: {fileID: -5476203953024752354, guid: b31b0b75158e45946bbd8d6e3a57295b, type: 3}
   ps: {fileID: 2072749492}
+  scr: {fileID: 315581452}
 --- !u!1 &2126768612
 GameObject:
   m_ObjectHideFlags: 0

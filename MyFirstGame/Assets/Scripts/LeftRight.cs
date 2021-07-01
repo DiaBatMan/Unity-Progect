@@ -1,5 +1,5 @@
 using UnityEngine;
-
+//Скрипт движения влево и вправо
 public class LeftRight : MonoBehaviour
 {   
     public float speed = 0.5f;
@@ -19,8 +19,8 @@ public class LeftRight : MonoBehaviour
     }
     void Update()
     {
-
-            if (x < Right && switcher)
+        //сдвиг по координате x
+        if (x < Right && switcher)
                 x += speed;
 
             if (x > Right)
@@ -32,12 +32,12 @@ public class LeftRight : MonoBehaviour
             if (x < Left)
                 switcher = true;
 
-            if (!GetComponent<EnemyScript>().enabled && !goHome)
-            {
+            if (!GetComponent<EnemyScript>().enabled && !goHome)//перемещение на эту координату
+        {
                 transform.position = new Vector3(x, y, -9);
             }
-            if (transform.position.y < 6)
-            {
+            if (transform.position.y < 6)//проверка на то,что враг пропал из воля видимости и возвращение его на свою точку
+        {
                 enemyScript.secondTiming = 0f;
                 enemyScript.Timing = 0f;
                 enemyScript.first = true;
@@ -52,8 +52,8 @@ public class LeftRight : MonoBehaviour
 
             }
 
-            if (goHome)
-            {
+            if (goHome)//возвращение врага на точку
+        {
 
                 transform.LookAt(new Vector3(x, y, -9));
                 Y -= 0.01f;

@@ -47,6 +47,9 @@ public class Cheking : MonoBehaviour
         id = new int[EnemyCount];
         Enemies = new GameObject[EnemyCount];
         ReadyEnemies = new GameObject[EnemyCount];
+        if (EnemyCount < 20)
+            timeBetweenAttacks = 2f;
+        else
         timeBetweenAttacks = EnemyCount / 10;
         //установка врагом по позициям из массива Poss
         for (int i = 0; i < 46; i++)

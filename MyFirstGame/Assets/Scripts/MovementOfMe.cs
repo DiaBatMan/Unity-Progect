@@ -1,14 +1,18 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 //скрипт МОЕГО движения
-public class MovementOfMe : MonoBehaviour
+public class MovementOfMe : text
 {
-    public GameObject bullet;
-    public float speed = 1.3f;
-    public float coolDown = 0f,timeBetweenAtacks=0.5f;
-    private bool hit;
-    private float timing = 0f;
     [SerializeField]
-    private GameObject cam;
+    private GameObject bullet;
+    public float speed = 1.3f;
+    public float timeBetweenAtacks=0.5f;
+    private bool hit;
+    private float timing = 0f, coolDown = 0f;
+    [SerializeField]
+    private Text Score, HP, maxScore;
+
 
 
     private void Start()
@@ -39,13 +43,18 @@ public class MovementOfMe : MonoBehaviour
     }
     void Update()
     {
+
+            Score.text = "Score " + score.ToString();
+            HP.text = "HP " + healPoints.ToString();
+            maxScore.text = "Max Score " + maxScroe.ToString();
+
         coolDown += Time.deltaTime;
         //МОЕ движение
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A)&&transform.position.x>-7.7)
         {
             transform.Translate(-Vector3.right * speed * Time.deltaTime);           
         }
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D)&&transform.position.x<7.7f)
         {
             transform.Translate(Vector3.right * speed * Time.deltaTime);            
         }
@@ -71,6 +80,16 @@ public class MovementOfMe : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        hit = true;
+        if (other.gameObject.tag != "myBullet")
+        {
+            Destroy(other.gameObject);
+            healPoints--;
+            if (healPoints == 0)
+            {
+                SceneManager.LoadScene(0);
+            }
+            hit = true;
+        }
+
     }
 }    

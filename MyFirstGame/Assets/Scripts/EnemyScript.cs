@@ -9,7 +9,7 @@ public class EnemyScript : MonoBehaviour
     public float Timing = 0f, Force = 1f, secondForce = 1.3f,secondTiming=0f;
     private GameObject movementOfMe;
     [HideInInspector]
-    public bool readyToFire=false,first=true,second=false;
+    public bool readyToFire=false,first=true,second=false,stop=false;
     private float y;
 
     private void Start()
@@ -19,14 +19,14 @@ public class EnemyScript : MonoBehaviour
         y = transform.position.y;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
 
-            Timing += Time.deltaTime;
+            Timing += Time.fixedDeltaTime;
             if (Timing < y / 10)
             {
             //движение оп направление х
-            if (transform.position.x > 0f)
+                 if (transform.position.x > 0f)
                 {
                     transform.LookAt(new Vector3(10, transform.position.y, transform.position.z));
                     GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * Force);
@@ -36,17 +36,23 @@ public class EnemyScript : MonoBehaviour
                     transform.LookAt(new Vector3(-10, transform.position.y, transform.position.z));
                     GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * Force);
                 }
+            stop = true;
             }
             else
             {
             //движение в направлении ћ≈Ќя
+            if (stop)
+            {
+                GetComponent<Rigidbody>().velocity = Vector3.zero;
+                stop = false;
+            }
             transform.LookAt(new Vector3(movementOfMe.transform.position.x, movementOfMe.transform.position.y, movementOfMe.transform.position.z));
                 GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * secondForce);
 
                 if (transform.position.y < 10f)
                 {
                     readyToFire = true;
-                    secondTiming += Time.deltaTime;
+                    secondTiming += Time.fixedDeltaTime;
                 }
 
             }

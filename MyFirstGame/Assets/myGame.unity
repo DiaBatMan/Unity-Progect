@@ -789,9 +789,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa22affc9b8bc22488dc983ffe4e665a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Score: {fileID: 1816843814}
-  HP: {fileID: 1771292022}
-  maxScore: {fileID: 1640606513}
 --- !u!1 &323878408
 GameObject:
   m_ObjectHideFlags: 0
@@ -4223,7 +4220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -4246,7 +4243,7 @@ Canvas:
   m_RenderMode: 1
   m_Camera: {fileID: 315581448}
   m_PlaneDistance: 5
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
@@ -4406,7 +4403,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -178, y: -54}
+  m_AnchoredPosition: {x: -66, y: -54}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1640606513
@@ -5752,9 +5749,21 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6782665862406446246, guid: 56ef2039c02abb742a7775b197b6943e, type: 3}
+      propertyPath: HP
+      value: 
+      objectReference: {fileID: 1771292022}
+    - target: {fileID: 6782665862406446246, guid: 56ef2039c02abb742a7775b197b6943e, type: 3}
       propertyPath: cam
       value: 
       objectReference: {fileID: 315581446}
+    - target: {fileID: 6782665862406446246, guid: 56ef2039c02abb742a7775b197b6943e, type: 3}
+      propertyPath: Score
+      value: 
+      objectReference: {fileID: 1816843814}
+    - target: {fileID: 6782665862406446246, guid: 56ef2039c02abb742a7775b197b6943e, type: 3}
+      propertyPath: maxScore
+      value: 
+      objectReference: {fileID: 1640606513}
     - target: {fileID: 6782665862663634328, guid: 56ef2039c02abb742a7775b197b6943e, type: 3}
       propertyPath: m_Name
       value: ME

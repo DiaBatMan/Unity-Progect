@@ -22,16 +22,4 @@ public class EnemyBullet : text
         }
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.name == "ME")
-        {
-            Destroy(enemyBullet);
-            healPoints--;
-            if (healPoints == 0)
-            {
-                SceneManager.LoadScene(0);
-            }
-        }
-    }
 }

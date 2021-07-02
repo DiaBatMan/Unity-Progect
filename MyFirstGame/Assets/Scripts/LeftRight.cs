@@ -2,7 +2,7 @@ using UnityEngine;
 //Скрипт движения влево и вправо
 public class LeftRight : MonoBehaviour
 {   
-    public float speed = 0.5f;
+    public float speed = 1f;
     private bool switcher=true;
     public bool goHome=false;
     private float Right,Left;
@@ -17,7 +17,7 @@ public class LeftRight : MonoBehaviour
         Right = x + 1.5f;
         Left = x - 1.5f;
     }
-    void Update()
+    void FixedUpdate()
     {
         //сдвиг по координате x
         if (x < Right && switcher)
@@ -56,7 +56,7 @@ public class LeftRight : MonoBehaviour
         {
 
                 transform.LookAt(new Vector3(x, y, -9));
-                Y -= 0.01f;
+                Y -= 0.1f;
                 transform.position = new Vector3(x, Y, -9);
 
 

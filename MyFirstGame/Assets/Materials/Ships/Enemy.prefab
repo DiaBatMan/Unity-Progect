@@ -130,7 +130,8 @@ MonoBehaviour:
   timeBeetwenAtacks: 0.2
   bullet: {fileID: 6736087954714802543, guid: 19fdd402d59157343a910c81466f14a7, type: 3}
   Timing: 0
-  Force: 0.1
+  Force: 0.2
+  secondForce: 0.5
   secondTiming: 0
   readyToFire: 0
   first: 1

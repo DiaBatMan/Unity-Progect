@@ -23,11 +23,22 @@ public class Cheking : MonoBehaviour
 
     private void Awake()
     {
-        EnemyCount = PlayerPrefs.GetInt("yCount") + PlayerPrefs.GetInt("bCount") + PlayerPrefs.GetInt("rCount") + PlayerPrefs.GetInt("bkCount");
-        y = PlayerPrefs.GetInt("yCount");
-        b = PlayerPrefs.GetInt("bCount");
-        r = PlayerPrefs.GetInt("rCount");
-        bk = PlayerPrefs.GetInt("bkCount");
+        if(PlayerPrefs.HasKey("yCount") || PlayerPrefs.HasKey("rCount")|| PlayerPrefs.HasKey("bCount")|| PlayerPrefs.HasKey("bkCount"))
+        {
+            y = PlayerPrefs.GetInt("yCount");
+            b = PlayerPrefs.GetInt("bCount");
+            r = PlayerPrefs.GetInt("rCount");
+            bk = PlayerPrefs.GetInt("bkCount");
+            EnemyCount = PlayerPrefs.GetInt("yCount") + PlayerPrefs.GetInt("bCount") + PlayerPrefs.GetInt("rCount") + PlayerPrefs.GetInt("bkCount");
+        }
+        else
+        {
+            y = 30;
+            b = 8;
+            r = 6;
+            bk = 2;
+            EnemyCount = 46;
+        }
         scr.Begin();
         //////враги, которые нападают групами(черные и крастные)
         lGroup = new GameObject[3];
@@ -174,8 +185,9 @@ public class Cheking : MonoBehaviour
                     EnemyCount--;
                     if (EnemyCount == 0)
                     {
-                        SceneManager.LoadScene(1);
+                        SceneManager.LoadScene(0);
                     }
+                    if(timeBetweenAttacks>2f)
                     timeBetweenAttacks = EnemyCount / 10;
                 }
             }

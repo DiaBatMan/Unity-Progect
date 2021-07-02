@@ -30,7 +30,7 @@ public class EnemyBullet : text
             healPoints--;
             if (healPoints == 0)
             {
-                SceneManager.LoadScene(1);
+                SceneManager.LoadScene(0);
             }
         }
     }

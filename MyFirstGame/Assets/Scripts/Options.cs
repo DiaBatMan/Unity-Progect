@@ -14,10 +14,7 @@ public class Options : MonoBehaviour
         blue.GetComponent<Renderer>().material.color = Color.blue;
         black.GetComponent<Renderer>().material.color = Color.black;
 
-        yText.text = yCount.ToString();
-        bText.text = bCount.ToString();
-        rText.text = rCount.ToString();
-        bkText.text = bkCount.ToString();
+        
         //загрузка из сохранени€ текущего цвета —≈Ѕя
         if (PlayerPrefs.HasKey("myColor"))
         {
@@ -36,11 +33,24 @@ public class Options : MonoBehaviour
             if (PlayerPrefs.GetString("myColor") == "bk")
                 GetComponent<Renderer>().material.color = Color.black;
         }
+        else GetComponent<Renderer>().material.color = Color.green;
         //загрузка из сохранение количества врагов
-        yCount= PlayerPrefs.GetInt("yCount");
-        bCount= PlayerPrefs.GetInt("bCount");
-        rCount=PlayerPrefs.GetInt("rCount");
-        bkCount= PlayerPrefs.GetInt("bkCount");
+        if(PlayerPrefs.HasKey("bkCount")|| PlayerPrefs.HasKey("rCount")|| PlayerPrefs.HasKey("yCount")|| PlayerPrefs.HasKey("bCount"))
+        {
+            yCount = PlayerPrefs.GetInt("yCount");
+            bCount = PlayerPrefs.GetInt("bCount");
+            rCount = PlayerPrefs.GetInt("rCount");
+            bkCount = PlayerPrefs.GetInt("bkCount");
+
+        }
+        else
+        {
+            yCount = 30;
+            bCount = 8;
+            rCount = 6;
+            bkCount = 2;
+
+        }
 
         bText.text = bCount.ToString();
         rText.text = rCount.ToString();

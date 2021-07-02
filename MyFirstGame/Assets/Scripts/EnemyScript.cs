@@ -4,8 +4,9 @@ public class EnemyScript : MonoBehaviour
 {
     public float bulletSpeed=20f;
     public float timeBeetwenAtacks=0.2f;
-    public GameObject bullet;
-    public float Timing = 0f, Force=1f,secondTiming=0f;
+    [SerializeField]
+    private GameObject bullet;
+    public float Timing = 0f, Force = 1f, secondForce = 1.3f,secondTiming=0f;
     private GameObject movementOfMe;
     [HideInInspector]
     public bool readyToFire=false,first=true,second=false;
@@ -40,7 +41,7 @@ public class EnemyScript : MonoBehaviour
             {
             //движение в направлении ћ≈Ќя
             transform.LookAt(new Vector3(movementOfMe.transform.position.x, movementOfMe.transform.position.y, movementOfMe.transform.position.z));
-                GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * Force);
+                GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * secondForce);
 
                 if (transform.position.y < 10f)
                 {

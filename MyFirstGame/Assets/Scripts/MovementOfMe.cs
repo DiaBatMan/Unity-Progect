@@ -4,6 +4,7 @@ public class MovementOfMe : MonoBehaviour
 {
     public GameObject bullet;
     public float speed = 1.3f;
+    public float coolDown = 0f,timeBetweenAtacks=0.5f;
     private bool hit;
     private float timing = 0f;
     [SerializeField]
@@ -30,10 +31,15 @@ public class MovementOfMe : MonoBehaviour
             if (PlayerPrefs.GetString("myColor") == "bk")
                 GetComponent<Renderer>().material.color = Color.black;
         }
+        else
+        {
+            GetComponent<Renderer>().material.color = Color.green;
+        }
 
     }
     void Update()
     {
+        coolDown += Time.deltaTime;
         //МОЕ движение
         if (Input.GetKey(KeyCode.A))
         {
@@ -43,8 +49,9 @@ public class MovementOfMe : MonoBehaviour
         {
             transform.Translate(Vector3.right * speed * Time.deltaTime);            
         }
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space)&&coolDown>timeBetweenAtacks)
         {
+            coolDown = 0f;
             Instantiate(bullet, transform.position, Quaternion.identity);           
         }
         ////////
